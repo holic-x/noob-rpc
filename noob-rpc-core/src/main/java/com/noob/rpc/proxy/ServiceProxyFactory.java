@@ -1,5 +1,7 @@
 package com.noob.rpc.proxy;
 
+import com.noob.rpc.RpcApplication;
+
 import java.lang.reflect.Proxy;
 
 /**
@@ -13,6 +15,12 @@ public class ServiceProxyFactory {
      * @return
      */
     public static <T> T getProxy(Class<T> serviceClass) {
+
+        // 校验配置参数，如果mock为true则走mock代理
+        if(RpcApplication.getRpcConfig().isMock()){
+            return MockServiceProxyFactory.getMockProxy(serviceClass);
+        }
+
         return (T) Proxy.newProxyInstance(
                 serviceClass.getClassLoader(),
                 new Class[]{serviceClass},
