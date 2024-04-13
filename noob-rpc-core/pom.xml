@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.noob.rpc</groupId>
-    <artifactId>sample-provider</artifactId>
+    <artifactId>noob-rpc-core</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
@@ -15,11 +15,11 @@
     </properties>
 
     <dependencies>
-        <!-- 引入公共模块 -->
+        <!-- https://mvnrepository.com/artifact/io.vertx/vertx-core -->
         <dependency>
-            <groupId>com.noob.rpc</groupId>
-            <artifactId>sample-common</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <groupId>io.vertx</groupId>
+            <artifactId>vertx-core</artifactId>
+            <version>4.5.1</version>
         </dependency>
 
         <!-- https://doc.hutool.cn/ -->
@@ -28,6 +28,7 @@
             <artifactId>hutool-all</artifactId>
             <version>5.8.16</version>
         </dependency>
+
         <!-- https://projectlombok.org/ -->
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -36,22 +37,32 @@
             <scope>provided</scope>
         </dependency>
 
-        <!-- 引入简易版RPC框架 -->
-        <!--
+        <!-- https://mvnrepository.com/artifact/ch.qos.logback/logback-classic -->
         <dependency>
-            <groupId>com.noob.rpc</groupId>
-            <artifactId>noob-rpc-easy</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-        -->
-
-        <!-- 引入扩展版PRC框架 -->
-        <dependency>
-            <groupId>com.noob.rpc</groupId>
-            <artifactId>noob-rpc-core</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.3.12</version>
         </dependency>
 
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>RELEASE</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>8</source>
+                    <target>8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
