@@ -21,12 +21,22 @@ public class EasyConsumerSample {
 
         User user = new User("noob");
 
-        // 调用
-        User newUser = userService.getUser(user);
-        if(newUser != null) {
-            System.out.println(newUser.getName());
-        }else {
-            System.out.println("user == null");
+        // 单次调用
+//        User newUser = userService.getUser(user);
+//        if(newUser != null) {
+//            System.out.println(newUser.getName());
+//        }else {
+//            System.out.println("user == null");
+//        }
+
+        // 单次调用
+        for(int i=0;i<5;i++){
+            User newUser = userService.getUser(user);
+            if(newUser != null) {
+                System.out.println(newUser.getName());
+            }else {
+                System.out.println("user == null");
+            }
         }
     }
 }
