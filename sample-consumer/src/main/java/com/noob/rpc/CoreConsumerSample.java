@@ -1,7 +1,8 @@
-package com.noob.rpc.proxy;
+package com.noob.rpc;
 
 import com.noob.rpc.common.model.User;
 import com.noob.rpc.common.service.UserService;
+import com.noob.rpc.proxy.ServiceProxyFactory;
 
 /**
  * 消费者调用请求

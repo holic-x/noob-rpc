@@ -7,6 +7,8 @@ import cn.hutool.http.HttpResponse;
 import com.noob.rpc.RpcApplication;
 import com.noob.rpc.config.RpcConfig;
 import com.noob.rpc.constant.RpcConstant;
+import com.noob.rpc.fault.retry.RetryStrategy;
+import com.noob.rpc.fault.retry.RetryStrategyFactory;
 import com.noob.rpc.loadbalancer.LoadBalancer;
 import com.noob.rpc.loadbalancer.LoadBalancerFactory;
 import com.noob.rpc.model.RpcRequest;
@@ -73,7 +75,14 @@ public class ServiceProxy implements InvocationHandler {
 //            return doHttpRequest(selectedServiceMetaInfo,bodyBytes);
 
             // 发送请求方式2：TCP请求处理
-            RpcResponse rpcResponse = VertxTcpClient.doRequest(rpcRequest,selectedServiceMetaInfo);
+//            RpcResponse rpcResponse = VertxTcpClient.doRequest(rpcRequest,selectedServiceMetaInfo);
+//            return rpcResponse.getData();
+
+            // 发送请求方式2：扩展实现：使用重试机制发送TCP请求
+            RetryStrategy retryStrategy = RetryStrategyFactory.getInstance(rpcConfig.getRetryStrategy());
+            RpcResponse rpcResponse = retryStrategy.doRetry(()->
+                VertxTcpClient.doRequest(rpcRequest,selectedServiceMetaInfo)
+            );
             return rpcResponse.getData();
 
         } catch (IOException e) {
