@@ -39,7 +39,8 @@ public class EtcdRegistry implements Registry {
         Lease leaseClient = client.getLeaseClient();
 
         // 创建一个 30 秒的租约
-        long leaseId = leaseClient.grant(30).get().getID();
+//        long leaseId = leaseClient.grant(30).get().getID();
+        long leaseId = leaseClient.grant(600).get().getID();
 
         // 设置要存储的键值对
         String registerKey = ETCD_ROOT_PATH + serviceMetaInfo.getServiceNodeKey();

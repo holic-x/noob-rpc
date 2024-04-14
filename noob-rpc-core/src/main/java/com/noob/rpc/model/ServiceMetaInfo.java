@@ -1,5 +1,6 @@
 package com.noob.rpc.model;
 
+import cn.hutool.core.util.StrUtil;
 import com.noob.rpc.constant.RpcConstant;
 import lombok.Data;
 
@@ -20,7 +21,18 @@ public class ServiceMetaInfo {
     /**
      * 服务地址
      */
-    private Integer serviceAddress;
+//    private Integer serviceAddress;
+
+    /**
+     * 服务域名
+     */
+    private String serviceHost;
+
+    /**
+     * 服务端口号
+     */
+    private Integer servicePort;
+
 
     /**
      * 服务分组（暂未实现）
@@ -42,7 +54,19 @@ public class ServiceMetaInfo {
      * @return
      */
     public String getServiceNodeKey() {
-        return String.format("%s/%s", getServiceKey(), serviceAddress);
+        return String.format("%s/%s:%s", getServiceKey(), serviceHost, servicePort);
+    }
+
+    /**
+     * 获取完整服务地址
+     *
+     * @return
+     */
+    public String getServiceAddress() {
+        if (!StrUtil.contains(serviceHost, "http")) {
+            return String.format("http://%s:%s", serviceHost, servicePort);
+        }
+        return String.format("%s:%s", serviceHost, servicePort);
     }
 
 }

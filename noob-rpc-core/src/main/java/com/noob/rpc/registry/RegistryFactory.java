@@ -9,7 +9,7 @@ import com.noob.rpc.spi.SpiLoader;
 public class RegistryFactory {
 
     static {
-        SpiLoader.load(Serializer.class);
+        SpiLoader.load(Registry.class);
     }
 
     /**
