@@ -1,7 +1,6 @@
-package com.noob.rpc;
+package com.noob.rpc.test;
 
 import com.noob.rpc.serializer.Serializer;
-import com.noob.rpc.serializer.SerializerFactory;
 
 import java.util.ServiceLoader;
 
