@@ -9,6 +9,7 @@ import com.noob.rpc.registry.Registry;
 import com.noob.rpc.registry.RegistryFactory;
 import com.noob.rpc.server.HttpServer;
 import com.noob.rpc.server.VertxHttpServer;
+import com.noob.rpc.server.tcp.VertxTcpServer;
 import com.noob.rpc.service.UserServiceImpl;
 
 /**
@@ -38,7 +39,9 @@ public class CoreProviderSample {
         }
 
         // 启动web服务（从RPC框架中的全局配置中获取端口）
-        HttpServer httpServer = new VertxHttpServer();
-        httpServer.doStart(RpcApplication.getRpcConfig().getServerPort());
+//        HttpServer httpServer = new VertxHttpServer();
+//        httpServer.doStart(RpcApplication.getRpcConfig().getServerPort());
+        VertxTcpServer vertxTcpServer = new VertxTcpServer();
+        vertxTcpServer.doStart(RpcApplication.getRpcConfig().getServerPort());
     }
 }
