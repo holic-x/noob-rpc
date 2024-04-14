@@ -64,7 +64,7 @@ public class VertxTcpServerTest {
      * @param requestData
      * @return
      */
-    private byte[] handleRequeset(byte[] requestData) {
+    private byte[] handleRequest(byte[] requestData) {
         return "hello Vertx Server".getBytes();
     }
 
