@@ -22,12 +22,30 @@ public class VertxTcpServerTest {
         server.connectHandler(socket->{
             // 处理连接
             socket.handler(buffer -> {
+                /*
                // 处理接收到的字节数组
                 byte[] requestData = buffer.getBytes();
                 // 自定义字节数组处理逻辑（例如解析请求、调用服务、构造响应等）
                 byte[] responseData = handleRequeset(requestData);
                 // 发送响应(向连接到服务器的客户端发送数据,数据格式为Buffer（Vertx提供的字节数组缓冲区实现）)
                 socket.write(Buffer.buffer(responseData));
+                 */
+                String testMessage = "hello noob!hello noob!hello noob!hello noob!";
+                int messageLength = testMessage.getBytes().length;
+                int bufferLength = buffer.getBytes().length;
+                if(bufferLength<messageLength){
+                    System.out.println("半包,length="+bufferLength);
+                    return;
+                }
+                if(bufferLength>messageLength){
+                    System.out.println("粘包,length="+bufferLength);
+                    return;
+                }
+                String str = new String(buffer.getBytes(0, messageLength));
+                System.out.println(str);
+                if(testMessage.equals(str)){
+                    System.out.println("数据接收正常");
+                }
             });
         });
 
