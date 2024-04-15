@@ -1,5 +1,6 @@
 package com.noob.rpc;
 
+import com.noob.rpc.bootstrap.ConsumerBootstrap;
 import com.noob.rpc.common.model.User;
 import com.noob.rpc.common.service.UserService;
 import com.noob.rpc.proxy.ServiceProxyFactory;
