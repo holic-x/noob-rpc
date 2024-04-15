@@ -1,7 +1,7 @@
 package com.noob.rpc.config;
 
-import com.noob.rpc.fault.retry.RetryStrategy;
 import com.noob.rpc.fault.retry.RetryStrategyKeys;
+import com.noob.rpc.fault.tolerant.TolerantStrategyKeys;
 import com.noob.rpc.loadbalancer.LoadBalancerKeys;
 import com.noob.rpc.serializer.SerializerKeys;
 import lombok.Data;
@@ -56,5 +56,10 @@ public class RpcConfig {
      * 重试策略配置
      */
     private String retryStrategy = RetryStrategyKeys.NO;
+
+    /**
+     * 容错策略配置
+     */
+    private String tolerantStrategy = TolerantStrategyKeys.FAIL_FAST;
 
 }
