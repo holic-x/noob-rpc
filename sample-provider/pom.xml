@@ -36,12 +36,22 @@
             <scope>provided</scope>
         </dependency>
 
-        <!-- 引入noob-rpc-easy模块 -->
+        <!-- 引入简易版RPC框架 -->
+        <!--
         <dependency>
             <groupId>com.noob.rpc</groupId>
             <artifactId>noob-rpc-easy</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+        -->
+
+        <!-- 引入扩展版PRC框架 -->
+        <dependency>
+            <groupId>com.noob.rpc</groupId>
+            <artifactId>noob-rpc-core</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
     </dependencies>
 
 </project>
