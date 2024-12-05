@@ -1,5 +1,6 @@
 /.idea
 **/.idea
+**/out
 
 /noob-rpc-base/target
 /noob-rpc-easy/target
