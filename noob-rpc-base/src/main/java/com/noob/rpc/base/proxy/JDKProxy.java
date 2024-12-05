@@ -1,4 +1,4 @@
-package com.noob.proxy;
+package com.noob.rpc.base.proxy;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;

@@ -1,6 +1,7 @@
-package com.noob.proxy;
+package com.noob.rpc.base.proxy;
 
-import java.lang.reflect.Proxy;
+
+import org.springframework.cglib.proxy.Proxy;
 
 /**
  * 代理测试

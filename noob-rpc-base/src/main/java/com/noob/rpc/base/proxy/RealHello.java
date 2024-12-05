@@ -1,4 +1,4 @@
-package com.noob.proxy;
+package com.noob.rpc.base.proxy;
 
 /**
  * 真实调用对象

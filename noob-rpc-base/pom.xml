@@ -35,6 +35,26 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.junit.platform</groupId>
+            <artifactId>junit-platform-commons</artifactId>
+        </dependency>
+
+
+        <!-- commons-jelly -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-jelly</artifactId>
+            <version>1.0.1</version>
+        </dependency>
+
+<!--        <dependency>-->
+<!--            <groupId>cn.hutool</groupId>-->
+<!--            <artifactId>hutool-all</artifactId>-->
+<!--            <version>5.8.16</version>-->
+<!--        </dependency>-->
+
+
     </dependencies>
     <dependencyManagement>
         <dependencies>
