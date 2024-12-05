@@ -1,4 +1,7 @@
 /.idea
+**/.idea
+
+/noob-rpc-base/target
 /noob-rpc-easy/target
 /sample-common/target
 /sample-consumer/target
