@@ -1,5 +1,8 @@
-package com.noob.grpcdemoserver.impl;
+package com.noob.server;
 
+import com.noob.grpc.demo.GreeterGrpc;
+import com.noob.grpc.demo.HelloReply;
+import com.noob.grpc.demo.HelloRequest;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
 import io.grpc.stub.StreamObserver;
@@ -10,7 +13,6 @@ import java.util.logging.Logger;
 /**
  * HelloWorldServer
  **/
-/*
 public class HelloWorldServer {
 
     private static final Logger log = Logger.getLogger(HelloWorldServer.class.getName());
@@ -54,4 +56,3 @@ public class HelloWorldServer {
     }
 
 }
-*/

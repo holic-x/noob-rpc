@@ -1,0 +1,35 @@
+syntax = "proto3"; // 表示使用的protobuf版本是proto3。还有一个版本是proto2，建议使用最新版本。
+
+import "google/protobuf/wrappers.proto";// 引入包装类型，没有默认值。下面会讲
+
+option java_multiple_files = true; // 如果是false，则只生成一个java文件。反之生成多个。
+option java_package = "com.khlin.grpc.proto"; // 类的包名
+option java_outer_classname = "UserProto"; // 想要生成的类的名字
+option objc_class_prefix = "khlin"; // 设置Objective-C类前缀，该前缀位于此.proto中所有Objective-C生成的类和枚举之前。似乎Java没用上。
+
+package user; // protobuf消息类型的包类，同样是为了防止命名冲突。
+
+// 定义一个服务
+service UserService{
+  // 简单模式
+  rpc getUserInfo(UserRequest) returns (UserResponse);
+  // 客户端流
+  rpc batchGetUserInfo(stream UserRequest) returns (google.protobuf.StringValue);
+  // 服务端流
+  rpc getUserInfoStream(UserRequest) returns (stream UserResponse);
+  // 双向流
+  rpc biGetUserInfo(stream UserRequest) returns (stream UserResponse);
+}
+
+// 定义一个入参类型
+message UserRequest{
+  string id = 1;
+}
+
+// 定义一个出参类型
+message UserResponse{
+  string id = 1;
+  int32 phoneNumber = 2; // 电话号码
+  string email = 3; // 邮箱地址
+  int32 serialNumber = 4; // 序列号
+}
