@@ -1,0 +1,32 @@
+//Protocal Buffers的版本有v2和v3之分,语法有较多变化,且相互不兼容
+//这里使用的v3版本的
+syntax = "proto3";
+
+//编译后生成的消息类HelloRequest和HelloReply是否分别放在单独的class文件中
+option java_multiple_files = true;
+//生成代码的包路径
+option java_package = "com.noob.grpc.demo";
+
+//最外层的类名称
+option java_outer_classname = "HelloWorldProto";
+
+//包命名空间
+package helloworld;
+
+// 服务接口
+service Greeter {
+  // 一个简单的rpc方法
+  rpc SayHello (HelloRequest) returns (HelloReply) {}
+
+}
+
+// 请求消息
+message HelloRequest {
+  string name = 1;
+}
+
+// 响应消息
+message HelloReply {
+  string message = 1;
+}
+
