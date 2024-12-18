@@ -2,6 +2,9 @@
 **/.idea
 **/out
 
+
+/grpc-demo-client/target
+/grpc-demo-server/target
 /noob-rpc-base/target
 /noob-rpc-easy/target
 /sample-common/target
