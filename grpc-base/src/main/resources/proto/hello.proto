@@ -1,0 +1,20 @@
+syntax = "proto3"; // 使用proto3，否则使用proto2
+
+option java_multiple_files = true;
+option java_package = "com.noob.grpc.hello"; // 生成类的包名
+option java_outer_classname = "HelloProto"; // 生成的数访问类的类名（如果没有指定此值，则生成的类名为proto文件名的驼峰命名法）
+option objc_class_prefix = "HLW";
+
+package hello;
+
+service HelloService{
+    rpc Say(HelloRequest) returns (HelloReply) {}
+}
+
+message HelloRequest {
+    string name = 1;
+}
+
+message HelloReply {
+    string message = 1;
+}

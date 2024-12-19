@@ -1,9 +1,11 @@
-package io.grpc.hello;
+package com.noob.grpc.hello.client;
 
+import com.noob.grpc.hello.HelloReply;
+import com.noob.grpc.hello.HelloRequest;
+import com.noob.grpc.hello.HelloServiceGrpc;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import io.grpc.StatusRuntimeException;
-
 
 import java.util.concurrent.TimeUnit;
 
