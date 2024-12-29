@@ -1,4 +1,14 @@
 /.idea
+**/.idea
+**/out
+
+
+/grpc-demo-client/target
+
+
+/grpc-base/target
+/grpc-demo/target
+/noob-rpc-base/target
 /noob-rpc-easy/target
 /sample-common/target
 /sample-consumer/target
